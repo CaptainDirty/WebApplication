@@ -115,17 +115,17 @@
 </div>
 
 @if (ViewBag.ClassOutputModels != null)
-{<hr>
+{<br>
  <center><h1>Приходная часть теплового баланса</h1></center>
 <div>
     <canvas id="myChartIncoming" max-width="200" max-height="200"></canvas>
 </div>
-<hr>
+<br>
 <center><h1>Расходная часть теплового баланса</h1></center>
 <div>
     <canvas id="myChartExpenditure" max-width="200" max-height="200"></canvas>
 </div>
-<hr>
+<br>
     <h2 style="font-weight:bold; color:#2c0eca">Приходная часть теплового баланса</h2>
     <h5>Химическая теплота топлива: @Math.Round(ViewBag.ClassOutputModels.Q_x, 2) кВт</h5>
     <h5>Физическая теплота топлива: @Math.Round(ViewBag.ClassOutputModels.Q_fiztopl, 2) кВт</h5>
