@@ -1,38 +1,37 @@
-﻿@{
-    ViewData["Title"] = "Расчеты";
-}
+﻿@{ ViewData["Title"] = "Расчеты";}
 
 <div class="text-center">
     <h1>Введите данные</h1>
     <form action="/Home/Index" method="post">
         <div class="container">
+            <label>Содержание элементов в элементарном составе природного газа на сухую массу, %</label>
             <div class="row d-flex align-items-end pt-1 pb-5">
                 <div class="col-3 col-md">
-                    <label for="CH4">Содержание CH4 в элементарном составе природного газа на сухую массу, %</label>
+                    <label for="CH4">CH4</label>
                     <input type="text" id="CH4" class="form-control" name="ci.CH4" value="89,7" placeholder="0" required />
                 </div>
                 <div class="col-3 col-md">
-                    <label for="C2H6">Содержание С2H6 в элементарном составе природного газа на сухую массу, %</label>
+                    <label for="C2H6">С2H6</label>
                     <input type="text" id="C2H6" class="form-control" name="ci.C2H6" value="5,2" placeholder="0" required />
                 </div>
                 <div class="col-3 col-md">
-                    <label for="C3H8">Содержание C3H8 в элементарном составе природного газа на сухую массу, %</label>
+                    <label for="C3H8">C3H8</label>
                     <input type="text" id="C3H8" class="form-control" name="ci.C3H8" value="1,7" placeholder="0" required />
                 </div>
                 <div class="col-3 col-md">
-                    <label for="C4H10">Содержание C4H10 в элементарном составе природного газа на сухую массу, %</label>
+                    <label for="C4H10">C4H10</label>
                     <input type="text" id="C4H10" class="form-control" name="ci.C4H10" value="0,5" placeholder="0" required />
                 </div>
                 <div class="col-4 col-md">
-                    <label for="C5H12">Содержание C5H12 в элементарном составе природного газа на сухую массу, %</label>
+                    <label for="C5H12">C5H12</label>
                     <input type="text" id="C5H12" class="form-control" name="ci.C5H12" value="0,1" placeholder="0" required />
                 </div>
                 <div class="col-4 col-md">
-                    <label for="N2">Содержание N2 в элементарном составе природного газа на сухую массу, %</label>
+                    <label for="N2">N2</label>
                     <input type="text" id="N2" class="form-control" name="ci.N2" value="2,7" placeholder="0" required />
                 </div>
                 <div class="col-4 col-md">
-                    <label for="CO2">Содержание CO2 в элементарном составе природного газа на сухую массу, %</label>
+                    <label for="CO2">CO2</label>
                     <input type="text" id="CO2" class="form-control" name="ci.CO2" value="0,1" placeholder="0" required />
                 </div>
             </div>
@@ -115,31 +114,32 @@
 </div>
 
 @if (ViewBag.ClassOutputModels != null)
-{<br>
- <center><h1>Приходная часть теплового баланса</h1></center>
-<div>
-    <canvas id="myChartIncoming" max-width="200" max-height="200"></canvas>
-</div>
+{
 <br>
-<center><h1>Расходная часть теплового баланса</h1></center>
-<div>
-    <canvas id="myChartExpenditure" max-width="200" max-height="200"></canvas>
-</div>
-<br>
-    <h2 style="font-weight:bold; color:#2c0eca">Приходная часть теплового баланса</h2>
-    <h5>Химическая теплота топлива: @Math.Round(ViewBag.ClassOutputModels.Q_x, 2) кВт</h5>
-    <h5>Физическая теплота топлива: @Math.Round(ViewBag.ClassOutputModels.Q_fiztopl, 2) кВт</h5>
-    <h5>Физическая теплота воздуха: @Math.Round(ViewBag.ClassOutputModels.Q_fizvozd, 2) кВт</h5>
-    <h4 style="color:green">Сумма: @(Math.Round(ViewBag.ClassOutputModels.Q_x, 2)+Math.Round(ViewBag.ClassOutputModels.Q_fiztopl, 2)+Math.Round(ViewBag.ClassOutputModels.Q_fizvozd, 2)) кВт</h4>
-    <h2 style="font-weight: bold; color: #2c0eca">Расходная часть теплового баланса</h2>
-    <h5>Теловая энергия, израсходованная на нагрев, плавление материалов: @Math.Round(ViewBag.ClassOutputModels.Q1, 2) кВт</h5>
-    <h5>Потери теплоты с отходящими газами: @Math.Round(ViewBag.ClassOutputModels.Q2, 2) кВт</h5>
-    <h5>Потери тепловой энергии вследствии недожега топлива: @Math.Round(ViewBag.ClassOutputModels.Q3, 2) кВт</h5>
-    <h5>Потери теплоты топкой: @Math.Round(ViewBag.ClassOutputModels.Q5_top, 2) кВт</h5>
-    <h5>Потеря теплоты вследствие теплопроводности стенки: @Math.Round(ViewBag.ClassOutputModels.Q5_rp, 2) кВт</h5>
-    <h4 style="color:green">Сумма: @(Math.Round(ViewBag.ClassOutputModels.Q1+ ViewBag.ClassOutputModels.Q2+ ViewBag.ClassOutputModels.Q3+ ViewBag.ClassOutputModels.Q5_top+ ViewBag.ClassOutputModels.Q5_rp, 2))</h4>
-    <h2 style="font-weight: bold; color: #2c0eca">Паропроизводительность: @Math.Round(ViewBag.ClassOutputModels.RashodQ, 2) кг/с</h2>
-    <h2 style="font-weight: bold; color: #2c0eca">КПД: @Math.Round(ViewBag.ClassOutputModels.KPD_agr, 2) %</h2>
+                <center><h1>Приходная часть теплового баланса</h1></center>
+                                <div>
+                                    <canvas id="myChartIncoming" max-width="200" max-height="200"></canvas>
+                                </div>
+                                                <br>
+                                                                <center><h1>Расходная часть теплового баланса</h1></center>
+                                                                                <div>
+                                                                                    <canvas id="myChartExpenditure" max-width="200" max-height="200"></canvas>
+                                                                                </div>
+                                                                                                <br>
+                                                                                                                <h2 style="font-weight:bold; color:#2c0eca">Приходная часть теплового баланса</h2>
+                                                                                                                                <h5>Химическая теплота топлива: @Math.Round(ViewBag.ClassOutputModels.Q_x, 2) кВт</h5>
+                                                                                                                                                <h5>Физическая теплота топлива: @Math.Round(ViewBag.ClassOutputModels.Q_fiztopl, 2) кВт</h5>
+                                                                                                                                                                <h5>Физическая теплота воздуха: @Math.Round(ViewBag.ClassOutputModels.Q_fizvozd, 2) кВт</h5>
+                                                                                                                                                                                <h4 style="color:green">Сумма: @(Math.Round(ViewBag.ClassOutputModels.Q_x, 2)+Math.Round(ViewBag.ClassOutputModels.Q_fiztopl, 2)+Math.Round(ViewBag.ClassOutputModels.Q_fizvozd, 2)) кВт</h4>
+                                                                                                                                                                                                <h2 style="font-weight: bold; color: #2c0eca">Расходная часть теплового баланса</h2>
+                                                                                                                                                                                                                <h5>Теловая энергия, израсходованная на нагрев, плавление материалов: @Math.Round(ViewBag.ClassOutputModels.Q1, 2) кВт</h5>
+                                                                                                                                                                                                                                <h5>Потери теплоты с отходящими газами: @Math.Round(ViewBag.ClassOutputModels.Q2, 2) кВт</h5>
+                                                                                                                                                                                                                                                <h5>Потери тепловой энергии вследствии недожега топлива: @Math.Round(ViewBag.ClassOutputModels.Q3, 2) кВт</h5>
+                                                                                                                                                                                                                                                                <h5>Потери теплоты топкой: @Math.Round(ViewBag.ClassOutputModels.Q5_top, 2) кВт</h5>
+                                                                                                                                                                                                                                                                                <h5>Потеря теплоты вследствие теплопроводности стенки: @Math.Round(ViewBag.ClassOutputModels.Q5_rp, 2) кВт</h5>
+                                                                                                                                                                                                                                                                                                <h4 style="color:green">Сумма: @(Math.Round(ViewBag.ClassOutputModels.Q1+ ViewBag.ClassOutputModels.Q2+ ViewBag.ClassOutputModels.Q3+ ViewBag.ClassOutputModels.Q5_top+ ViewBag.ClassOutputModels.Q5_rp, 2))</h4>
+                                                                                                                                                                                                                                                                                                                <h2 style="font-weight: bold; color: #2c0eca">Паропроизводительность: @Math.Round(ViewBag.ClassOutputModels.RashodQ, 2) кг/с</h2>
+                                                                                                                                                                                                                                                                                                                                <h2 style="font-weight: bold; color: #2c0eca">КПД: @Math.Round(ViewBag.ClassOutputModels.KPD_agr, 2) %</h2>
 }
 <script>
     var Graphik = @Html.Raw(ViewBag.TheIncomingPart);
