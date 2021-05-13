@@ -1,4 +1,5 @@
-﻿@{ ViewData["Title"] = "Расчеты";}
+﻿@model ClassInputModels
+@{ ViewData["Title"] = "Расчеты";}
 
 <div class="text-center">
     <h1>Введите данные</h1>
@@ -8,104 +9,104 @@
             <div class="row d-flex align-items-end pt-1 pb-5">
                 <div class="col-3 col-md">
                     <label for="CH4">CH4</label>
-                    <input type="text" id="CH4" class="form-control" name="ci.CH4" value="89,7" placeholder="0" required />
+                    <input type="text" id="CH4" class="form-control" name="ci.CH4" value="@Model.CH4" placeholder="0" required />
                 </div>
                 <div class="col-3 col-md">
                     <label for="C2H6">С2H6</label>
-                    <input type="text" id="C2H6" class="form-control" name="ci.C2H6" value="5,2" placeholder="0" required />
+                    <input type="text" id="C2H6" class="form-control" name="ci.C2H6" value="@Model.C2H6" placeholder="0" required />
                 </div>
                 <div class="col-3 col-md">
                     <label for="C3H8">C3H8</label>
-                    <input type="text" id="C3H8" class="form-control" name="ci.C3H8" value="1,7" placeholder="0" required />
+                    <input type="text" id="C3H8" class="form-control" name="ci.C3H8" value="@Model.C3H8" placeholder="0" required />
                 </div>
                 <div class="col-3 col-md">
                     <label for="C4H10">C4H10</label>
-                    <input type="text" id="C4H10" class="form-control" name="ci.C4H10" value="0,5" placeholder="0" required />
+                    <input type="text" id="C4H10" class="form-control" name="ci.C4H10" value="@Model.C4H10" placeholder="0" required />
                 </div>
                 <div class="col-4 col-md">
                     <label for="C5H12">C5H12</label>
-                    <input type="text" id="C5H12" class="form-control" name="ci.C5H12" value="0,1" placeholder="0" required />
+                    <input type="text" id="C5H12" class="form-control" name="ci.C5H12" value="@Model.C5H12" placeholder="0" required />
                 </div>
                 <div class="col-4 col-md">
                     <label for="N2">N2</label>
-                    <input type="text" id="N2" class="form-control" name="ci.N2" value="2,7" placeholder="0" required />
+                    <input type="text" id="N2" class="form-control" name="ci.N2" value="@Model.N2" placeholder="0" required />
                 </div>
                 <div class="col-4 col-md">
                     <label for="CO2">CO2</label>
-                    <input type="text" id="CO2" class="form-control" name="ci.CO2" value="0,1" placeholder="0" required />
+                    <input type="text" id="CO2" class="form-control" name="ci.CO2" value="@Model.CO2" placeholder="0" required />
                 </div>
             </div>
 
             <div class="row d-flex align-items-end pb-5 ">
                 <div class="col-4 col-lg-2">
                     <label for="V_gas">Влагосодержание газа, г/м3</label>
-                    <input type="text" id="V_gas" class="form-control" name="ci.Vlagosod" value="20" placeholder="0" required />
+                    <input type="text" id="V_gas" class="form-control" name="ci.Vlagosod" value="@Model.Vlagosod" placeholder="0" required />
                 </div>
                 <div class="col-4 col-lg-2">
                     <label for="T_gas">Температура подогретого газа, °С</label>
-                    <input type="text" id="T_gas" class="form-control" name="ci.Tpodgas" value="20" placeholder="0" required />
+                    <input type="text" id="T_gas" class="form-control" name="ci.Tpodgas" value="@Model.Tpodgas" placeholder="0" required />
                 </div>
                 <div class="col-4 col-lg-2">
                     <label for="TP_gas">Температура подогретого воздуха, °С</label>
-                    <input type="text" id="TP_gas" class="form-control" name="ci.Tpodvosd" value="10" placeholder="0" required />
+                    <input type="text" id="TP_gas" class="form-control" name="ci.Tpodvosd" value="@Model.Tpodvosd" placeholder="0" required />
                 </div>
                 <div class="col-4 col-lg-2">
                     <label for="KPD">КПД, %</label>
-                    <input type="text" id="KPD" class="form-control" name="ci.KPD" value="0,9" placeholder="0" required />
+                    <input type="text" id="KPD" class="form-control" name="ci.KPD" value="@Model.KPD" placeholder="0" required />
                 </div>
                 <div class="col-4 col-lg-2">
                     <label for="N_gas">Номинальная паропроизводительность, кг/с</label>
-                    <input type="text" id="N_gas" class="form-control" name="ci.ParPr" value="50" placeholder="0" required />
+                    <input type="text" id="N_gas" class="form-control" name="ci.ParPr" value="@Model.ParPr" placeholder="0" required />
                 </div>
                 <div class="col-4 col-lg-2">
                     <label for="K_gas">Коэффициент избытка воздуха, α</label>
-                    <input type="text" id="K_gas" class="form-control" name="ci.alfa" value="1,15" placeholder="0" required />
+                    <input type="text" id="K_gas" class="form-control" name="ci.alfa" value="@Model.alfa" placeholder="0" required />
                 </div>
             </div>
 
             <div class="row pb-5 d-flex align-items-end">
                 <div class="col-4 col-lg-2">
                     <label for="20">Химический недожег топлива, %</label>
-                    <input type="text" id="20" class="form-control" name="ci.himnedog" value="3" placeholde="0" required />
+                    <input type="text" id="20" class="form-control" name="ci.himnedog" value="@Model.himnedog" placeholde="0" required />
                 </div>
                 <div class="col-4 col-lg-2">
                     <label for="21">D барабана, м</label>
-                    <input type="text" id="21" class="form-control" name="ci.D" value="1" placeholde="0" required />
+                    <input type="text" id="21" class="form-control" name="ci.D" value="@Model.D" placeholde="0" required />
                 </div>
                 <div class="col-4 col-lg-2">
                     <label for="22">L барабана, м</label>
-                    <input type="text" id="22" class="form-control" name="ci.L" value="14" placeholder="0" required />
+                    <input type="text" id="22" class="form-control" name="ci.L" value="@Model.L" placeholder="0" required />
                 </div>
                 <div class="col-4 col-lg-2">
                     <label for="23">Температура перегретого пара, °С</label>
-                    <input type="text" id="23" class="form-control" name="ci.Tpp" value="440" placeholder="0" required />
+                    <input type="text" id="23" class="form-control" name="ci.Tpp" value="@Model.Tpp" placeholder="0" required />
                 </div>
                 <div class="col-4 col-lg-2">
                     <label for="24">Температура питательной воды, °С</label>
-                    <input type="text" id="24" class="form-control" name="ci.Tpv" value="140" placeholder="0" required />
+                    <input type="text" id="24" class="form-control" name="ci.Tpv" value="@Model.Tpv" placeholder="0" required />
                 </div>
                 <div class="col-4 col-lg-2">
                     <label for="25">Температура уходящих газов, °С</label>
-                    <input type="text" id="25" class="form-control" name="ci.Tug" value="160" placeholder="0" required />
+                    <input type="text" id="25" class="form-control" name="ci.Tug" value="@Model.Tug" placeholder="0" required />
                 </div>
             </div>
 
             <div class="row mb-5 d-flex align-items-end">
                 <div class="col-6 col-sm-3">
                     <label for="26">Температура горячего воздуха, °С</label>
-                    <input type="text" id="26" class="form-control" name="ci.Tgv" value="190" placeholder="0" required />
+                    <input type="text" id="26" class="form-control" name="ci.Tgv" value="@Model.Tgv" placeholder="0" required />
                 </div>
                 <div class="col-6 col-sm-3">
                     <label for="27">Температура холодного воздуха, °С</label>
-                    <input type="text" id="27" class="form-control" name="ci.Thv" value="30" placeholder="0" required />
+                    <input type="text" id="27" class="form-control" name="ci.Thv" value="@Model.Thv" placeholder="0" required />
                 </div>
                 <div class="col-6 col-sm-3">
                     <label for="28">Рабочее давление в барабане котла, кгс/см2</label>
-                    <input type="text" id="28" class="form-control" name="ci.WorkPressureOnDrum" value="44" placeholder="0" required />
+                    <input type="text" id="28" class="form-control" name="ci.WorkPressureOnDrum" value="@Model.WorkPressureOnDrum" placeholder="0" required />
                 </div>
                 <div class="col-6 col-sm-3">
                     <label for="29">Рабочее давление на выходе из пароперегревателя, кгс/см2</label>
-                    <input type="text" id="29" class="form-control" name="ci.WorkPressureOnExit" value="40" placeholder="0" required />
+                    <input type="text" id="29" class="form-control" name="ci.WorkPressureOnExit" value="@Model.WorkPressureOnExit" placeholder="0" required />
                 </div>
             </div>
         </div>

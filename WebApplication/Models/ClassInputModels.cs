@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,6 +8,8 @@ namespace WebApplication.Models
 {
     public class ClassInputModels
     {
+        [Key]
+        public int Id { get; set; }
         public double CH4 { get; set; }
         public double C2H6 { get; set; }
         public double C3H8 { get; set; }
