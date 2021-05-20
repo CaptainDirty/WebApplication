@@ -8,8 +8,8 @@ using WebApplication.Data;
 namespace WebApplication.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210513054909_exMig")]
-    partial class exMig
+    [Migration("20210520060104_IdName")]
+    partial class IdName
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -52,6 +52,9 @@ namespace WebApplication.Migrations
 
                     b.Property<double>("N2")
                         .HasColumnType("REAL");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
 
                     b.Property<double>("ParPr")
                         .HasColumnType("REAL");

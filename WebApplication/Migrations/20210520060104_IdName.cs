@@ -2,7 +2,7 @@
 
 namespace WebApplication.Migrations
 {
-    public partial class exMig : Migration
+    public partial class IdName : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,6 +12,7 @@ namespace WebApplication.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(nullable: true),
                     CH4 = table.Column<double>(nullable: false),
                     C2H6 = table.Column<double>(nullable: false),
                     C3H8 = table.Column<double>(nullable: false),

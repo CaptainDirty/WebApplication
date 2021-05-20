@@ -51,6 +51,9 @@ namespace WebApplication.Migrations
                     b.Property<double>("N2")
                         .HasColumnType("REAL");
 
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
                     b.Property<double>("ParPr")
                         .HasColumnType("REAL");
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,6 +11,7 @@ namespace WebApplication.Models
     {
         [Key]
         public int Id { get; set; }
+        public string Name { get; set; }
         public double CH4 { get; set; }
         public double C2H6 { get; set; }
         public double C3H8 { get; set; }
@@ -33,5 +35,7 @@ namespace WebApplication.Models
         public double Vlagosod { get; set; }
         public double D { get; set; }
         public double L { get; set; }
+        [NotMapped]
+        public string Description { get; set; }
     }
 }

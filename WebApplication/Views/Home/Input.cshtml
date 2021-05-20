@@ -1,0 +1,226 @@
+﻿@model ClassInputModels
+@{ ViewData["Title"] = "Расчеты";}
+
+<div class="text-center">
+    <h1>Введите данные</h1>
+    <form action="/Home/Input" method="post">
+        <input type="hidden" name="ci.Id" value="@Model.Id" />
+        <div class="container">
+            <input type="text" class="form-control" name="ci.Name" value="@Model.Name" required />
+
+
+            <label>Содержание элементов в элементарном составе природного газа на сухую массу, %</label>
+            <div class="row d-flex align-items-end pt-1 pb-5">
+                <div class="col-3 col-md">
+                    <label for="CH4">CH4</label>
+                    <input type="text" id="CH4" class="form-control" name="ci.CH4" value="@Model.CH4" placeholder="0" required />
+                </div>
+                <div class="col-3 col-md">
+                    <label for="C2H6">С2H6</label>
+                    <input type="text" id="C2H6" class="form-control" name="ci.C2H6" value="@Model.C2H6" placeholder="0" required />
+                </div>
+                <div class="col-3 col-md">
+                    <label for="C3H8">C3H8</label>
+                    <input type="text" id="C3H8" class="form-control" name="ci.C3H8" value="@Model.C3H8" placeholder="0" required />
+                </div>
+                <div class="col-3 col-md">
+                    <label for="C4H10">C4H10</label>
+                    <input type="text" id="C4H10" class="form-control" name="ci.C4H10" value="@Model.C4H10" placeholder="0" required />
+                </div>
+                <div class="col-4 col-md">
+                    <label for="C5H12">C5H12</label>
+                    <input type="text" id="C5H12" class="form-control" name="ci.C5H12" value="@Model.C5H12" placeholder="0" required />
+                </div>
+                <div class="col-4 col-md">
+                    <label for="N2">N2</label>
+                    <input type="text" id="N2" class="form-control" name="ci.N2" value="@Model.N2" placeholder="0" required />
+                </div>
+                <div class="col-4 col-md">
+                    <label for="CO2">CO2</label>
+                    <input type="text" id="CO2" class="form-control" name="ci.CO2" value="@Model.CO2" placeholder="0" required />
+                </div>
+            </div>
+
+            <div class="row d-flex align-items-end pb-5 ">
+                <div class="col-4 col-lg-2">
+                    <label for="V_gas">Влагосодержание газа, г/м3</label>
+                    <input type="text" id="V_gas" class="form-control" name="ci.Vlagosod" value="@Model.Vlagosod" placeholder="0" required />
+                </div>
+                <div class="col-4 col-lg-2">
+                    <label for="T_gas">Температура подогретого газа, °С</label>
+                    <input type="text" id="T_gas" class="form-control" name="ci.Tpodgas" value="@Model.Tpodgas" placeholder="0" required />
+                </div>
+                <div class="col-4 col-lg-2">
+                    <label for="TP_gas">Температура подогретого воздуха, °С</label>
+                    <input type="text" id="TP_gas" class="form-control" name="ci.Tpodvosd" value="@Model.Tpodvosd" placeholder="0" required />
+                </div>
+                <div class="col-4 col-lg-2">
+                    <label for="KPD">КПД, %</label>
+                    <input type="text" id="KPD" class="form-control" name="ci.KPD" value="@Model.KPD" placeholder="0" required />
+                </div>
+                <div class="col-4 col-lg-2">
+                    <label for="N_gas">Номинальная паропроизводительность, кг/с</label>
+                    <input type="text" id="N_gas" class="form-control" name="ci.ParPr" value="@Model.ParPr" placeholder="0" required />
+                </div>
+                <div class="col-4 col-lg-2">
+                    <label for="K_gas">Коэффициент избытка воздуха, α</label>
+                    <input type="text" id="K_gas" class="form-control" name="ci.alfa" value="@Model.alfa" placeholder="0" required />
+                </div>
+            </div>
+
+            <div class="row pb-5 d-flex align-items-end">
+                <div class="col-4 col-lg-2">
+                    <label for="20">Химический недожег топлива, %</label>
+                    <input type="text" id="20" class="form-control" name="ci.himnedog" value="@Model.himnedog" placeholde="0" required />
+                </div>
+                <div class="col-4 col-lg-2">
+                    <label for="21">D барабана, м</label>
+                    <input type="text" id="21" class="form-control" name="ci.D" value="@Model.D" placeholde="0" required />
+                </div>
+                <div class="col-4 col-lg-2">
+                    <label for="22">L барабана, м</label>
+                    <input type="text" id="22" class="form-control" name="ci.L" value="@Model.L" placeholder="0" required />
+                </div>
+                <div class="col-4 col-lg-2">
+                    <label for="23">Температура перегретого пара, °С</label>
+                    <input type="text" id="23" class="form-control" name="ci.Tpp" value="@Model.Tpp" placeholder="0" required />
+                </div>
+                <div class="col-4 col-lg-2">
+                    <label for="24">Температура питательной воды, °С</label>
+                    <input type="text" id="24" class="form-control" name="ci.Tpv" value="@Model.Tpv" placeholder="0" required />
+                </div>
+                <div class="col-4 col-lg-2">
+                    <label for="25">Температура уходящих газов, °С</label>
+                    <input type="text" id="25" class="form-control" name="ci.Tug" value="@Model.Tug" placeholder="0" required />
+                </div>
+            </div>
+
+            <div class="row mb-5 d-flex align-items-end">
+                <div class="col-6 col-sm-3">
+                    <label for="26">Температура горячего воздуха, °С</label>
+                    <input type="text" id="26" class="form-control" name="ci.Tgv" value="@Model.Tgv" placeholder="0" required />
+                </div>
+                <div class="col-6 col-sm-3">
+                    <label for="27">Температура холодного воздуха, °С</label>
+                    <input type="text" id="27" class="form-control" name="ci.Thv" value="@Model.Thv" placeholder="0" required />
+                </div>
+                <div class="col-6 col-sm-3">
+                    <label for="28">Рабочее давление в барабане котла, кгс/см2</label>
+                    <input type="text" id="28" class="form-control" name="ci.WorkPressureOnDrum" value="@Model.WorkPressureOnDrum" placeholder="0" required />
+                </div>
+                <div class="col-6 col-sm-3">
+                    <label for="29">Рабочее давление на выходе из пароперегревателя, кгс/см2</label>
+                    <input type="text" id="29" class="form-control" name="ci.WorkPressureOnExit" value="@Model.WorkPressureOnExit" placeholder="0" required />
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary" id="#Egorushka" type="submit">Посчитать</button>
+    </form>
+</div>
+
+@if (ViewBag.ClassOutputModels != null)
+{
+<br>
+                <center><h1>Приходная часть теплового баланса</h1></center>
+                                <div>
+                                    <canvas id="myChartIncoming" max-width="200" max-height="200"></canvas>
+                                </div>
+                                                <br>
+                                                                <center><h1>Расходная часть теплового баланса</h1></center>
+                                                                                <div>
+                                                                                    <canvas id="myChartExpenditure" max-width="200" max-height="200"></canvas>
+                                                                                </div>
+                                                                                                <br>
+                                                                                                                <h2 style="font-weight:bold; color:#2c0eca">Приходная часть теплового баланса</h2>
+                                                                                                                                <h5>Химическая теплота топлива: @Math.Round(ViewBag.ClassOutputModels.Q_x, 2) кВт</h5>
+                                                                                                                                                <h5>Физическая теплота топлива: @Math.Round(ViewBag.ClassOutputModels.Q_fiztopl, 2) кВт</h5>
+                                                                                                                                                                <h5>Физическая теплота воздуха: @Math.Round(ViewBag.ClassOutputModels.Q_fizvozd, 2) кВт</h5>
+                                                                                                                                                                                <h4 style="color:green">Сумма: @(Math.Round(ViewBag.ClassOutputModels.Q_x, 2)+Math.Round(ViewBag.ClassOutputModels.Q_fiztopl, 2)+Math.Round(ViewBag.ClassOutputModels.Q_fizvozd, 2)) кВт</h4>
+                                                                                                                                                                                                <h2 style="font-weight: bold; color: #2c0eca">Расходная часть теплового баланса</h2>
+                                                                                                                                                                                                                <h5>Теловая энергия, израсходованная на нагрев, плавление материалов: @Math.Round(ViewBag.ClassOutputModels.Q1, 2) кВт</h5>
+                                                                                                                                                                                                                                <h5>Потери теплоты с отходящими газами: @Math.Round(ViewBag.ClassOutputModels.Q2, 2) кВт</h5>
+                                                                                                                                                                                                                                                <h5>Потери тепловой энергии вследствии недожега топлива: @Math.Round(ViewBag.ClassOutputModels.Q3, 2) кВт</h5>
+                                                                                                                                                                                                                                                                <h5>Потери теплоты топкой: @Math.Round(ViewBag.ClassOutputModels.Q5_top, 2) кВт</h5>
+                                                                                                                                                                                                                                                                                <h5>Потеря теплоты вследствие теплопроводности стенки: @Math.Round(ViewBag.ClassOutputModels.Q5_rp, 2) кВт</h5>
+                                                                                                                                                                                                                                                                                                <h4 style="color:green">Сумма: @(Math.Round(ViewBag.ClassOutputModels.Q1+ ViewBag.ClassOutputModels.Q2+ ViewBag.ClassOutputModels.Q3+ ViewBag.ClassOutputModels.Q5_top+ ViewBag.ClassOutputModels.Q5_rp, 2))</h4>
+                                                                                                                                                                                                                                                                                                                <h2 style="font-weight: bold; color: #2c0eca">Паропроизводительность: @Math.Round(ViewBag.ClassOutputModels.RashodQ, 2) кг/с</h2>
+                                                                                                                                                                                                                                                                                                                                <h2 style="font-weight: bold; color: #2c0eca">КПД: @Math.Round(ViewBag.ClassOutputModels.KPD_agr, 2) %</h2>
+}
+<script>
+    var Graphik = @Html.Raw(ViewBag.TheIncomingPart);
+    var ctx = document.getElementById('myChartIncoming').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Химическая теплота топлива, кВт', 'Физическая теплота топлива, кВт', 'Физическая теплота воздуха, кВт'],
+            datasets: [{
+                label: 'Приходная часть теплового баланса',
+                data: Graphik,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });</script>
+<script>
+    var Graphik = @Html.Raw(ViewBag.TheExpenditurePart);
+    var ctx = document.getElementById('myChartExpenditure').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['>Теловая энергия, израсходованная на нагрев, плавление материалов, кВт', 'Потери теплоты с отходящими газами, кВт', 'Потери тепловой энергии вследствии недожега топлива, кВт', 'Потери теплоты топкой, кВт', 'Потеря теплоты вследствие теплопроводности стенки, кВт'],
+            datasets: [{
+                label: 'Расходная часть теплового баланса',
+                data: Graphik,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });</script>

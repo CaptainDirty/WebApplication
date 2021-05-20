@@ -23,14 +23,44 @@ namespace WebApplication.Controllers
 
         public IActionResult Index()
         {
-            var ClassInputModels =  _context.ClassInputModeles.FirstOrDefault(x => x.Id == 1);
+            var ClassInputModels = _context.ClassInputModeles
+                .Where(x => x.Id !=0)
+                .OrderBy(x => x.Id)
+                .ToList();
             
             return View(ClassInputModels);
         }
 
-        [HttpPost]
-        public IActionResult Index(ClassInputModels ci)
+
+        public IActionResult Input(int id)
         {
+            var ClassInputModels = _context.ClassInputModeles.FirstOrDefault(x => x.Id == id);
+
+            return View(ClassInputModels);
+        }
+
+        public IActionResult Remove(int id)
+        {
+            var ClassInputModels = _context.ClassInputModeles.FirstOrDefault(x => x.Id == id);
+
+            _context.ClassInputModeles.Remove(ClassInputModels);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult Input(ClassInputModels ci)
+        {
+            var existDataModel = _context.ClassInputModeles.FirstOrDefault(x => x.Id == ci.Id);
+
+            if(existDataModel != null && existDataModel.Name != ci.Name)
+            {
+                ci.Id = 0;
+                _context.ClassInputModeles.Add(ci);
+                _context.SaveChanges();
+            }
+
             ClassMidCalcModels cm = new ClassMidCalcModels();
             ClassMidCalcPut mc = new ClassMidCalcPut();
             ClassFinalCalcModels fc = new ClassFinalCalcModels();
