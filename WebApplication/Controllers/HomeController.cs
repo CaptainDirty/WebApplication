@@ -21,10 +21,23 @@ namespace WebApplication.Controllers
             _logger = logger;
         }
 
+        private int? GetUserId()
+        {
+            var userIdString = User.FindFirst("UserId")?.Value;
+
+            if (userIdString == null)
+                return null;
+
+            return int.Parse(userIdString);
+        }
+
         public IActionResult Index()
         {
+            int? userId = GetUserId();
+
             var ClassInputModels = _context.ClassInputModeles
                 .Where(x => x.Id !=0)
+                .Where(x => x.UserId == userId)
                 .OrderBy(x => x.Id)
                 .ToList();
             
@@ -35,7 +48,12 @@ namespace WebApplication.Controllers
         public IActionResult Input(int id)
         {
             var ClassInputModels = _context.ClassInputModeles.FirstOrDefault(x => x.Id == id);
-
+            if (ClassInputModels == null)
+            {
+                ClassInputModels = new ClassInputModels();
+                _context.ClassInputModeles.Add(ClassInputModels);
+                _context.SaveChanges();
+            }
             return View(ClassInputModels);
         }
 
@@ -52,6 +70,7 @@ namespace WebApplication.Controllers
         [HttpPost]
         public IActionResult Input(ClassInputModels ci)
         {
+            ci.UserId = GetUserId();
             var existDataModel = _context.ClassInputModeles.FirstOrDefault(x => x.Id == ci.Id);
 
             if(existDataModel != null && existDataModel.Name != ci.Name)

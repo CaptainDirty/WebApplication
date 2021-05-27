@@ -12,6 +12,7 @@ namespace WebApplication.Models
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
+        public int? UserId { get; set; }
         public double CH4 { get; set; }
         public double C2H6 { get; set; }
         public double C3H8 { get; set; }
